@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <h1>Hangman</h1>
-      <p>Find the hidden word - Enter a letter</p>
+      <p>Find the hidden programming language - Enter a letter</p>
     </>
   );
 }
