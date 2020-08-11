@@ -55,7 +55,7 @@ function Hangman() {
         setCorrectLetters((currentLetters) => [...currentLetters, letter]);
       }
     });
-  }, []);
+  }, [playable]);
 
   const playAgain = () => {
     setPlayable(true);
