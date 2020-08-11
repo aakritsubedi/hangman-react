@@ -17,7 +17,7 @@ export const languages = [
   {
     name: "C++",
     hint:
-      "https://medium.com/the-open-manuel/top-50-programming-languages-in-the-world-508a119cb714",
+      "is a compiled programming language designed for system programming with performance, efficiency and flexibility of use as its design highlight",
   },
   {
     name: "PYTHON",
