@@ -22,7 +22,7 @@ function Hangman() {
     const handleKeydown = (event) => {
       const { key, keyCode } = event;
       if (playable && keyCode >= 65 && keyCode <= 90) {
-        const letter = key.toLowerCase();
+        const letter = key.toUpperCase();
 
         if (selectedWord.includes(letter)) {
           if (!correctLetters.includes(letter)) {
