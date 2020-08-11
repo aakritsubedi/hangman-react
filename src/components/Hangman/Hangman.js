@@ -8,9 +8,12 @@ import WrongLetters from "components/WrongLetters";
 import Words from "components/Words";
 import Popup from "components/Popup";
 import Notification from "components/Notification";
+import Hint from "components/Hint";
 
 import { languages } from "constant/listOfProgrammingLanguage";
-let selectedWord = languages[Math.floor(Math.random() * languages.length)];
+let random = Math.floor(Math.random() * languages.length)
+let selectedWord = languages[random].name; 
+let hint = languages[random].hint;
 
 function Hangman() {
   const [playable, setPlayable] = useState(true);
@@ -45,6 +48,15 @@ function Hangman() {
     return () => window.removeEventListener("keydown", handleKeydown);
   }, [correctLetters, wrongLetters, playable]);
 
+  useEffect(() => {
+    // pre-populate the correct letter with special character
+    selectedWord.split("").forEach((letter) => {
+      if (!(letter.charCodeAt() >= 65) || !(letter.charCodeAt() <= 90 || (letter.charCodeAt() === 32))) {
+        setCorrectLetters((currentLetters) => [...currentLetters, letter]);
+      }
+    });
+  }, []);
+
   const playAgain = () => {
     setPlayable(true);
 
@@ -53,8 +65,9 @@ function Hangman() {
     setWrongLetters([]);
 
     const random = Math.floor(Math.random() * languages.length);
-    selectedWord = languages[random];
-  }
+    selectedWord = languages[random].name;
+    hint = languages[random].hint;
+  };
 
   return (
     <>
@@ -63,8 +76,15 @@ function Hangman() {
         <Figure wrongLetters={wrongLetters} />
         <WrongLetters wrongLetters={wrongLetters} />
         <Words selectedWord={selectedWord} correctLetters={correctLetters} />
+        <Hint hint={hint} />
       </div>
-      <Popup correctLetters={correctLetters} wrongLetters={wrongLetters} selectedWord={selectedWord} setPlayable={setPlayable} playAgain={playAgain} />
+      <Popup
+        correctLetters={correctLetters}
+        wrongLetters={wrongLetters}
+        selectedWord={selectedWord}
+        setPlayable={setPlayable}
+        playAgain={playAgain}
+      />
       <Notification showNotification={showNotification} />
     </>
   );

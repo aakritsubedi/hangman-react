@@ -128,3 +128,8 @@ h1 {
 .notification-container.show {
   transform: translateY(-50px);
 }
+.hint {
+  margin-top: 80px;
+  font-size: 14px;
+  text-align: justify;
+}
