@@ -12,6 +12,7 @@ body {
   height: 80vh;
   margin: 0;
   overflow: hidden;
+  text-align: center;
 }
 
 h1 {
@@ -51,7 +52,7 @@ h1 {
 }
 
 .wrong-letters-container span {
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .word {
