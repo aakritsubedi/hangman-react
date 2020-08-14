@@ -178,7 +178,7 @@ export const languages = [
       "was developed to overcome Java’s major flaws, some of which include raw types and checked exceptions",
   },
   {
-    name: "HASKEL",
+    name: "HASKELL",
     hint:
       "is a statically typed, purely functional programming language. It’s mainly used for business logic and prototyping",
   },
